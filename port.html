@@ -1,69 +1,213 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>portfolio</title>
-	<style type="text/css">
-		body {
-			width: 100vw;
-			overflow-x: hidden;
-			margin: 0px;
-
-			& > div {
-				width: 100%;
+	<head>
+		<meta charset="utf-8">
+		<title>portfolio</title>
+		<style type="text/css">
+			@font-face {
+				font-family: "shumatsu";
+				src: url('dl_font/少女終末旅行.otf');
 			}
-		}
 
-		#content {
-			position: absolute;
-			left: 0px;
-			top: 0px;			
-		}
+			@font-face {
+				font-family: "shokaki";
+				src: url("dl_font/しょかきさらり行体.ttf");
+			}
 
-		#header {
-			position: sticky;
-			top: 0px;
-			left: 0px;
-			background: black;		
-			height: 100px;	
+			@font-face {
+				font-family: "voynich";
+				src: url('dl_font/Voynich.ttf');
+			}
 
-			#title {
-				font-size: 60px;
-				line-height: 100px;
-				color: white;
+			body {
+				width: 100vw;
+				overflow-x: hidden;
+				margin: 0px;
+				font-family: "shumatsu";
 
-				& > span {
-					color: cyan;
+				& > div {
+					width: 100%;
+				}
+
+				&::-webkit-scrollbar {
+					display: none;
 				}
 			}
 
-			#links {
+			#content {
 				position: absolute;
-				right: 0px;
-				display: inline-block;
+				left: 0px;
+				top: 0px;			
 			}
-		}
 
-		#main {
-			height: 1000px;
-		}
-	</style>
-</head>
-<body>
-	<div id="contnet">
-		<div id="header">
-			<span id="title"><span>P</span>ORT<span>F</span>OLIO</span>
+			#header {
+				position: sticky;
+				top: 0px;
+				left: 0px;
+				background: black;		
+				height: 100px;	
 
-			<div id="links">
-				<a href="">top</a>
-				<a href="">about me</a>
-				<a href="">products</a>
-				<a href="">skils</a>
+				#title {
+					padding-left: 20px;
+					font-size: 60px;
+					line-height: 100px;
+					color: white;
+
+					& > span {
+						color: cyan;
+					}
+				}
+
+				#links {
+					position: absolute;
+					right: 10px;
+					display: inline-block;
+					height: 100%;
+
+					& > a {
+						display: inline-block;
+						height: 100%;
+						line-height: 100px;
+						margin: 0px 10px;
+						text-decoration: none;
+						color: white;
+					}
+				}
+			}
+
+			#main {
+				height: auto;
+				padding: 0px 10vw;
+				background-color: #e0ffff;
+				--indent: 15px;
+
+				.subTitle {
+					font-size: 40px;
+					margin-left: calc(-1* var(--indent));
+				}
+
+				& > div {
+					border-bottom: solid 1px #ccc;
+					padding-left: var(--indent);
+					font-size: 20px;
+					scroll-margin-top: 100px !important;
+				}
+
+				.list {
+					display: grid;
+					grid-template-columns: auto 30px auto;
+					grid-row-gap: 10px;
+
+					/*&>p:nth-child(2n-1):after {
+						content: ":";
+					}*/
+
+					&>p {
+						margin: 0px;
+
+						& a {
+							text-decoration: none;
+							color: black;
+						}
+					}
+				}
+
+				.icons  {
+					display: grid;
+					grid-template-columns: repeat(4, auto);
+					grid-gap: 50px;
+					/*grid-row-gap: 30px;*/
+
+					& > div {
+						border: solid 1px #ccc;
+						box-sizing: border-box;
+						aspect-ratio: 1;
+						display: grid;
+						grid-template-rows: 70% 30%;
+						transition: grid-template-rows 0.3s ease;
+						overflow-y: hidden;
+						background-repeat: no-repeat;
+						background-size: 85%;
+						background-position: 50%;
+
+						&:hover > p {
+							bottom: 0px;
+						}
+
+						& > p {
+							transition: bottom 0.3s ease !important;
+							width: 100%;
+							grid-row: 2/3;
+							margin: 0px;
+							backdrop-filter: brightness(0.5);
+							position: relative;
+							bottom: calc(-1 * 100%);
+							color: rgba(255,255,255,0.7);
+							
+							display: grid;
+							place-items: center;	
+							height: auto;						
+						}
+					}
+				}
+			}
+		</style>
+
+		<script type="text/javascript">
+			/*document.addEventListener('DOMContentLoaded', () => {
+				const icons = document.getElementsByClassName('icons').children();
+				for(let i=0; i<icons.length; i++) {
+					icons[i].style.height = icons[i].clientWodth + "px";
+				}
+			})*?
+		</script>
+	</head>
+	<body>
+		<div id="contnet">
+			<div id="header">
+				<span id="title"><span>P</span>ORT<span>F</span>OLIO</span>
+
+				<div id="links">
+					<a href="">top</a>
+					<a href="#introduction">about me</a>
+					<a href="#skills">skills</a>					
+					<a href="#products">products</a>
+				</div>
 			</div>
-		</div>
 
-		<div id="main"></div>
-		<div id="footer"></div>		
-	</div>
-</body>
+			<div id="main">
+				<div id="introduction">
+					<span class="subTitle">Introduction</span>
+					<div class="list">
+						<p>name</p><p>:</p><p>Kota Mizutani</p>
+						<p>age</p><p>:</p><p>17</p>
+						<p>mail</p><p>:</p><p>rc23135r@st.omu.ac.jp</p>
+						<p>affiliation</p><p>:</p><p>
+							<a href="https://www.ct.omu.ac.jp/">Osaka Metropolitan University College of Technology</a> > <br>
+							<a href="https://www.ct.omu.ac.jp/courses/">depertment systems</a> > <br>
+							<a href="https://www.ct.omu.ac.jp/courses/intelligent-informatics/">intelligent infomatics</a> > <br>
+							2nd grade
+					</div>
+				</div>
+				<div id="skills">
+					<span class="subTitle">Skills</span>
+					<div class="icons">
+						<div style="background-image: url('img/html-1.svg');"><p>HTML5</p></div>
+						<div style="background-image: url('img/css.svg');"><p>CSS3</p></div>
+						<div style="background-image: url('img/js.svg');"><p>JavaScript</p></div>
+						<div style="background-image: url('img/node.svg');"><p>node.js</p></div>
+						<div style="background-image: url('img/php.svg');"><p>php</p></div>
+						<div style="background-image: url('img/java.svg'); background-size: 65%;"><p>java</p></div>
+						<div style="background-image: url('img/haskell.svg');"><p>haskell</p></div>
+						<div style="background-image: url('img/mysql.svg');"><p>MySQL</p></div>
+						<div style="background-image: url('img/python.svg');"><p>python</p></div>
+					</div>
+				</div>				
+				<div id="products">
+					<span class="subTitle">Products</span>
+				</div>
+			</div>
+			<div id="footer"></div>	
+		</div>
+	</body>
 </html>
