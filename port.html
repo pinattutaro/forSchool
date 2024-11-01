@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>portfolio</title>
+	<style type="text/css">
+		body {
+			width: 100vw;
+			overflow-x: hidden;
+			margin: 0px;
+
+			& > div {
+				width: 100%;
+			}
+		}
+
+		#content {
+			position: absolute;
+			left: 0px;
+			top: 0px;			
+		}
+
+		#header {
+			position: sticky;
+			top: 0px;
+			left: 0px;
+			background: black;		
+			height: 100px;	
+
+			#title {
+				font-size: 60px;
+				line-height: 100px;
+				color: white;
+
+				& > span {
+					color: cyan;
+				}
+			}
+
+			#links {
+				position: absolute;
+				right: 0px;
+				display: inline-block;
+			}
+		}
+
+		#main {
+			height: 1000px;
+		}
+	</style>
+</head>
+<body>
+	<div id="contnet">
+		<div id="header">
+			<span id="title"><span>P</span>ORT<span>F</span>OLIO</span>
+
+			<div id="links">
+				<a href="">top</a>
+				<a href="">about me</a>
+				<a href="">products</a>
+				<a href="">skils</a>
+			</div>
+		</div>
+
+		<div id="main"></div>
+		<div id="footer"></div>		
+	</div>
+</body>
+</html>
