@@ -10,20 +10,15 @@
 			}
 
 			@font-face {
-				font-family: "shokaki";
-				src: url("dl_font/しょかきさらり行体.ttf");
-			}
-
-			@font-face {
-				font-family: "voynich";
-				src: url('dl_font/Voynich.ttf');
+				font-family: "dot";
+				src: url('dl_font/ryakjisknameMdot10.ttf');
 			}
 
 			body {
 				width: 100vw;
 				overflow-x: hidden;
 				margin: 0px;
-				font-family: "shumatsu";
+				font-family: "dot";
 
 				& > div {
 					width: 100%;
@@ -46,12 +41,17 @@
 				left: 0px;
 				background: black;		
 				height: 100px;	
+				z-index: 999;
 
 				#title {
 					padding-left: 20px;
 					font-size: 60px;
 					line-height: 100px;
 					color: white;
+					letter-spacing: 2px;
+					/*text-decoration: underline;
+					text-decoration-color: cyan;
+					text-decoration-style: 2px;*/
 
 					& > span {
 						color: cyan;
@@ -83,11 +83,13 @@
 
 				.subTitle {
 					font-size: 40px;
+					line-height: 50px;
 					margin-left: calc(-1* var(--indent));
 				}
 
 				& > div {
 					border-bottom: solid 1px #ccc;
+					padding: 10px 0px;
 					padding-left: var(--indent);
 					font-size: 20px;
 					scroll-margin-top: 100px !important;
@@ -97,6 +99,7 @@
 					display: grid;
 					grid-template-columns: auto 30px auto;
 					grid-row-gap: 10px;
+					line-height: 40px;
 
 					/*&>p:nth-child(2n-1):after {
 						content: ":";
@@ -152,22 +155,65 @@
 						}
 					}
 				}
+
+				.pList {
+					min-height: 100px;
+					display: grid;
+					grid-template-columns: 1fr 4fr;
+
+					& > span {
+						display: contents;
+
+						& > .thumb {
+							aspect-ratio: 1;
+							border: solid 1px #ccc;
+							box-sizing: border-box;
+							background-size: 100%;
+							background-repeat: no-repeat;
+							background-position: 50%;
+						}
+
+						& > .description {
+							aspect-ratio: 4;
+							border: solid 1px #ccc;
+							box-sizing: border-box;
+							padding: 5px 20px;
+
+							& > .subTitle {
+								/*margin: 0px;*/
+								font-size: 30px;
+							}
+
+							& > .tags {
+								/*font-size: 15px;*/
+								line-height: 30px;
+								color: #0cc;
+								position: relative;
+								bottom: 0px;
+							}
+
+							& > a {
+								text-decoration: none;
+								color: inherit;
+							}
+						}
+
+						&:nth-child(even) > * {
+							/*backdrop-filter: brightness(0.8);*/
+							backdrop-filter: hue-rotate(180deg);
+							color: #222;
+						}						
+					}
+				}
 			}
 		</style>
-
-		<script type="text/javascript">
-			/*document.addEventListener('DOMContentLoaded', () => {
-				const icons = document.getElementsByClassName('icons').children();
-				for(let i=0; i<icons.length; i++) {
-					icons[i].style.height = icons[i].clientWodth + "px";
-				}
-			})*?
-		</script>
 	</head>
 	<body>
 		<div id="contnet">
 			<div id="header">
-				<span id="title"><span>P</span>ORT<span>F</span>OLIO</span>
+				<!--<span id="title"><span>P</span>ORT<span>F</span>OLIO</span>-->
+				<!--<span id="title"><span>P</span>inattu</span>-->
+				<span id="title">落<span>科</span>生</span>
 
 				<div id="links">
 					<a href="">top</a>
@@ -181,14 +227,15 @@
 				<div id="introduction">
 					<span class="subTitle">Introduction</span>
 					<div class="list">
-						<p>name</p><p>:</p><p>Pinattu</p>
+						<p>name</p><p>:</p><p style="letter-spacing: 2px;">落科生</p>
 						<p>age</p><p>:</p><p>17</p>
 						<p>mail</p><p>:</p><p>rc23135r@st.omu.ac.jp</p>
-						<p>affiliation</p><p>:</p><p>
-							<a href="https://www.ct.omu.ac.jp/">Osaka Metropolitan University College of Technology</a> > <br>
-							<a href="https://www.ct.omu.ac.jp/courses/">depertment systems</a> > <br>
-							<a href="https://www.ct.omu.ac.jp/courses/intelligent-informatics/">intelligent infomatics</a> > <br>
-							2nd grade
+						<p>github</p><p>:</p><p><a href="https://github.com/pinattutaro">https://github.com/pinattutaro</a></p>
+						<p>affiliation</p><p>:</p><p style="letter-spacing: 2px;">
+							<a href="https://www.ct.omu.ac.jp/">大阪公立大学工業高等専門学校</a> > <br>
+							<a href="https://www.ct.omu.ac.jp/courses/">総合工学システム学科</a> > <br>
+							<a href="https://www.ct.omu.ac.jp/courses/intelligent-informatics/">知能情報コース</a> > <br>
+							二年次</p>
 					</div>
 				</div>
 				<div id="skills">
@@ -207,6 +254,61 @@
 				</div>				
 				<div id="products">
 					<span class="subTitle">Products</span>
+					<div class="pList">
+						<span>
+							<a class="thumb" href="https://pinattutaro.github.io/forSchool/works/3d_mult.html" style="background-image: url('img/canyon.png')"></a>
+							<div class="description">
+								<div class="subTitle">Canayon Cubic Engine for prototype</div>
+								　自作3Dグラフィックエンジンのプロトタイプ。プログラミング1の課題4として提出。視点の概念はなく。遠近感も次世代タイプの作成のために削除されました。きわめて遠い地点から見ているイメージ。機能はブロックの設置と削除のみのシンプルな作品。正式版となるCanyon Cubic Engine ver1.0は指向ごと変えて制作中。
+								<div class="tags">#html5 #css3 #javascript</div>
+							</div>						
+						</span>
+
+						<span>
+							<a class="thumb" href="https://pinattutaro.github.io/Must/top/top.html" style="background-image: url('img/must.png')"></a>
+							<div class="description">
+								<div class="subTitle">Must</div>
+								　高専祭乃至総合課題実習の作品として作成した英語学習ウェブアプリ。単語帳の方はバグってるけどウチは担当ちゃうで。でも担当のマーカーの方も日本語対応してない。creating on(予定なし)
+								<div class="tags">#html5 #css3 #javascript #node.js</div>
+							</div>						
+						</span>
+
+						<span>
+							<a href="https://pinattutaro.github.io/forSchool/works/tetris.html" style="background-image: url('img/tetris.png');" class="thumb"></a>
+							<div class="description">
+								<div class="subTitle">Tetris</div>
+								　いつ作ったかもわかんない。多分高専入る前に作った。作りが雑。<br>そもそも私tetrisまともにやったことない。デバッグ大変やった記憶ある。
+								<div class="tags">#html5 #css3 #javascript</div>
+							</div>
+						</span>
+
+						<span>
+							<div class="thumb" style="background-image: url(img/extension.svg);"></div>
+							<div class="description">
+								<div class="subTitle" style="font-size: 25px;">ブラウザ使用状況管理ツール</div>
+								　保護者が被保護者のブラウザの閲覧履歴などを監視するための拡張機能。管理画面からスクリプトを実行させることも可能。悪用厳禁！！
+								<div class="tags">#node.js</div>
+							</div>
+						</span>
+
+						<span>
+							<div class="thumb" style="background-image: url('img/extension.svg');"></div>
+							<div class="description">
+								<div class="subTitle">Extension for Searching Pixiv Bookmarks</div>
+								　<a href="https://www.pixiv.net">pixiv</a>のブックマークの検索機能ってめっちゃ不便ですよね。タグを検索できるのはいいんですが自分でタグを設定しなければいけなかったり、複数のタグや詳細な絞り込みできなかったりと惜しい所がありますね。それを自分で補完するための拡張機能だよ。大枠はできたけどスタイル考えるのが面倒くさい。
+								<div class="tags">#javascript</div>
+							</div>
+						</span>
+
+						<span>
+							<a href="https://github.com/pinattutaro/forSchool/tree/main/works/openMask" class="thumb" style="background-image: url('img/extension.svg');"></a>
+							<div class="description">
+								<div class="subTitle">openMask</div>
+								　プログラミングの資料の隠れてる部分を一々押して表示するの面倒くさいからスクロールするだけで表示状態にしてくれるようにしました。怒られるかな？
+								<div class="tags">#javascript</div>
+							</div>
+						</span>
+					</div>
 				</div>
 			</div>
 			<div id="footer"></div>	
