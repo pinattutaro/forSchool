@@ -3,8 +3,8 @@ const app = express();
 const http = require('http');
 const WebSocket = require('ws');
 const wss = new WebSocket.Server({ noServer: true });
-const host = "192.168.1.6";
-const port = 8000;
+const host = "192.168.1.6";//enter your ip
+const port = 8000;//enter port you like
 const server = http.createServer(app);
 
 const fs = require('fs');
