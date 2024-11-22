@@ -115,10 +115,21 @@
 					}
 				}
 
+				#skills > #levels {
+					& > .level {
+						margin: 10px 0px;
+
+						& > span {
+							font-size: 30px;
+						}
+					}
+				}
+
 				.icons  {
+					width: 100%;
 					display: grid;
 					grid-template-columns: repeat(4, 1fr);
-					grid-gap: 50px;
+					grid-gap: 30px;
 					/*grid-row-gap: 30px;*/
 
 					& > div,a {
@@ -153,6 +164,20 @@
 							place-items: center;	
 							height: auto;						
 						}
+					}
+				}
+
+				@media (max-width: 700px) {
+					.icons {
+						grid-template-columns: repeat(3, 1fr);
+						grid-gap: 10px;
+					}
+				}
+
+				@media (max-width: 500px) {
+					.icons {
+						grid-template-columns: repeat(2, 1fr);
+						grid-gap: 0px;
 					}
 				}
 
@@ -240,7 +265,7 @@
 				</div>
 				<div id="skills">
 					<span class="subTitle">Skills</span>
-					<div class="icons">
+					<!--<div class="icons">
 						<div style="background-image: url('img/html-1.svg');"><p>HTML5</p></div>
 						<div style="background-image: url('img/css.svg');"><p>CSS3</p></div>
 						<div style="background-image: url('img/js.svg');"><p>JavaScript</p></div>
@@ -250,7 +275,42 @@
 						<a href="https://www.haskell.org/" style="background-image: url('img/haskell.svg');"><p>haskell</p></a>
 						<a href="https://www.mysql.com/" style="background-image: url('img/mysql.svg');"><p>MySQL</p></a>
 						<a href="https://www.python.org/" style="background-image: url('img/python.svg');"><p>python</p></a>
+					</div>-->
+					<div id="levels">
+						<div class="level">
+							<span>main</span>
+							<div class="icons">
+								<div style="background-image: url('img/html-1.svg');"><p>HTML5</p></div>
+								<div style="background-image: url('img/css.svg');"><p>CSS3</p></div>
+								<div style="background-image: url('img/js.svg');"><p>JavaScript</p></div>
+								<a href="https://nodejs.org/en" style="background-image: url('img/node.svg');"><p>node.js</p></a>
+							</div>
+						</div>	
+
+						<div class="level">
+							<span>sub</span>
+							<div class="icons">
+								<a href="https://www.mysql.com/" style="background-image: url('img/mysql.svg');"><p>MySQL</p></a>
+								<a href="https://www.python.org/" style="background-image: url('img/python.svg');"><p>python</p></a>
+							</div>
+						</div>							
+
+						<div class="level">
+							<span>learning</span>
+							<div class="icons">
+								<a href="https://www.oracle.com/java/" style="background-image: url('img/java.svg'); background-size: 65%;"><p>java</p></a>
+								<a href="https://www.haskell.org/" style="background-image: url('img/haskell.svg');"><p>haskell</p></a>					
+							</div>
+						</div>	
+
+						<div class="level">
+							<span>waste</span>
+							<div class="icons">
+								<a href="https://www.php.net/" style="background-image: url('img/php.svg');"><p>php</p></a>
+							</div>
+						</div>					
 					</div>
+
 				</div>				
 				<div id="products">
 					<span class="subTitle">Products</span>
@@ -295,7 +355,7 @@
 							<div class="thumb" style="background-image: url('img/extension.svg');"></div>
 							<div class="description">
 								<div class="subTitle">Extension for Searching Pixiv Bookmarks</div>
-								　<a href="https://www.pixiv.net">pixiv</a>のブックマークの検索機能ってめっちゃ不便ですよね。タグを検索できるのはいいんですが自分でタグを設定しなければいけなかったり、複数のタグや詳細な絞り込みできなかったりと惜しい所がありますね。それを自分で補完するための拡張機能だよ。大枠はできたけどスタイル考えるのが面倒くさい。
+								　<a href="https://www.pixiv.net">pixiv</a>のブックマークの検索機能ってめっちゃ不便ですよね。タグを検索できるのはいいんですが、自分でタグを設定しなければいけなかったり、複数のタグや詳細な絞り込みできなかったりと惜しい所がありますね。それを自分で補完するための拡張機能だよ。大枠はできたけどスタイル考えるのが面倒くさい。
 								<div class="tags">#javascript</div>
 							</div>
 						</span>
