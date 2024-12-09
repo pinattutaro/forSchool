@@ -18,7 +18,7 @@ const observer = new MutationObserver(() => {
     a.id = "searchingTag";
     a.className = classes.join(' ');
     a.textContent = "ブックマーク検索";
-    a.href = "https://www.pixiv.net/users/81925394/bookmarks/artworks/customSearch";
+    a.href = "https://www.pixiv.net/users/uid/bookmarks/artworks/customSearch";
     li.appendChild(a);
     bookmarkMenu.parentElement.after(li);
 });
